@@ -1,0 +1,42 @@
+=== LICENSE/COPYRIGHT NOTICE ===
+THIS SCRIPT HAS BEEN RELEASED UNDER THE LGPL V3. Please make sure that you understand
+the LGPL before using, as it could result with you getting into trouble should
+you break any of the requirements. I have included the license in the file "LICENSE"
+
+=== DONATIONS ===
+Donations are accepted:
+BTC: 1SoMGuYknDgyYypJPVVKE2teHBN4HDAh3
+LTC: LSomguyTSwcw3hZKFts4P453sPfn4Y5Jzv
+LQC: vbh3c3nCdWCnBq7gDNrJeXSt8WMg9Y64x8
+NMC: N5omEguYDarGmHt2R23DFvkXYU49yPAAKN
+
+If this script has helped you, please donate to the bitcoin address above ^
+
+=== What is this? ===
+The MtGOX API is sort-of confusing for some, and can be annoying to work with,
+So, I have created a simple class file which makes using the API fairly easy
+by creating functions which automatically parse the API into normal PHP arrays
+that are easy to implement in your normal PHP scripts.
+
+It's released under the LGPL, which means you CAN use it in a proprietary script
+as long as you keep the copyright notice, and let people know that you're using it.
+===
+Enough with what this is, here's how you use it:
+
+=== HOW TO USE ===
+Place Gox.class.php in the same directory as your script
+Put an "include("Gox.class.php");" at the top of your script
+Directly below that, or where it is needed, initialize the class by giving it
+your API Key and secret obtained from mtgox.com:
+"""
+$gox = new Gox('myLongAPIKey', 'Mysecretsecret');
+"""
+Not much else needs to be explained, I have documented each function with phpDocumentor
+comments, so if you use an IDE like phpDesigner, it should explain every function as you
+type them. If not, just open up the class in your favourite editor and read through the
+comments, they're pretty self explanatory.
+
+=== DEPENDENCIES ===
+- PHP 5> (obviously, MAY work with PHP4, no guarantees)
+- cURL (and the plugin must be enabled in php.ini)
+- json_decode (I think that's native in PHP, not sure so I'll list it here anyway)
