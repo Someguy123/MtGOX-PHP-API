@@ -3,7 +3,7 @@
 /**
  * @package MTGox API
  * @author Chris S AKA Someguy123
- * @version 0.1
+ * @version 0.2
  * @access public
  * @license http://www.opensource.org/licenses/LGPL-3.0
  */
