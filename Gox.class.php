@@ -128,6 +128,31 @@ class Gox
 		} else
 			die("Please specify a code.");
 	}
+
+	/**
+	* Gox::buyBTC()
+	*
+	* @param float $amount
+	* @param float $price
+	* @param string $currency
+	*/
+	function buyBTC($amount, $price, $currency){
+		$buyBTC = $this->mtgox_query('0/buyBTC.php', array('amount' => $amount, 'price' => $price, 'Currency' => $currency));
+		return $buyBTC;
+	}
+
+	/**
+	* Gox::sellBTC()
+	*
+	* @param float $amount
+	* @param float $price
+	* @param string $currency
+	*/
+	function sellBTC($amount, $price, $currency){
+		$sellBTC = $this->mtgox_query('0/sellBTC.php', array('amount' => $amount, 'price' => $price, 'Currency' => $currency));
+		return $sellBTC;
+	}
+
 	/**
 	 * Gox::withdraw()
 	 * 
