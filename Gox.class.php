@@ -68,7 +68,7 @@ class Gox
 				'Mozilla/4.0 (compatible; MtGox PHP client; ' . php_uname('s') . '; PHP/' .
 				phpversion() . ')');
 		}
-		curl_setopt($ch, CURLOPT_URL, 'https://mtgox.com/api/' . $path);
+		curl_setopt($ch, CURLOPT_URL, 'https://data.mtgox.com/api/' . $path);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
