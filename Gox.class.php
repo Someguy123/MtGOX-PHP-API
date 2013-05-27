@@ -12,10 +12,10 @@ class Gox
 {
 	private $key;
 	private $secret;
-	public $redeemd;       // Redeemed code information
-	public $withdrew;      // Withdrawal information
-    public $info;          // Result from getInfo()
-    public $ticker;        // Current ticker (getTicker())
+	public $redeemd;  // Redeemed code information
+	public $withdrew; // Withdrawal information
+	public $info;     // Result from getInfo()
+	public $ticker;   // Current ticker (getTicker())
 	/**
 	 * Gox::__construct()
 	 * Sets required key and secret to allow the script to function
@@ -81,28 +81,28 @@ class Gox
 			throw new Exception('Invalid data received, please make sure connection is working and requested API exists');
 		return $dec;
 	}
-    
-    /**
-     * Gox::getInfo()
-     * Returns information about your account, including funds, fees, and API priviledges
-     * @return array $info
-     */
-    function getInfo() {
-        $info = $this->mtgox_query('0/info.php');
-        $this->info = $info; // Hold it in a variable for easy access
-        return $info;
-    }
-    
-    /**
-     * Gox::ticker()
-     * Returns current ticker from MtGOX
-     * @return $ticker
-     */
-    function ticker() {
-        $ticker = $this->mtgox_query('0/ticker.php');
-        $this->ticker = $ticker; // Another variable to contain it.
-        return $ticker;
-    }
+	
+	/**
+	 * Gox::getInfo()
+	 * Returns information about your account, including funds, fees, and API priviledges
+	 * @return array $info
+	 */
+	function getInfo() {
+		$info = $this->mtgox_query('0/info.php');
+		$this->info = $info; // Hold it in a variable for easy access
+		return $info;
+	}
+	
+	/**
+	 * Gox::ticker()
+	 * Returns current ticker from MtGOX
+	 * @return $ticker
+	 */
+	function ticker() {
+		$ticker = $this->mtgox_query('0/ticker.php');
+		$this->ticker = $ticker; // Another variable to contain it.
+		return $ticker;
+	}
 	/**
 	 * Gox::redeemCode()
 	 * Redeems a MTGox code passed to it.
@@ -177,15 +177,15 @@ class Gox
 				return false;
 			}
 		}
-        /** End *code code */
-        /** Begin BTC output code */
-        /*
-         * Warning, I have not yet experimented with direct bitcoin address withdrawals, USE AT YOUR OWN RISK!
-         */
-        if($method = "BTC" && isset($btca)) {
-            $withdraw = $this->mtgox_query('0/withdraw.php', array('group1' => 'BTC', 'amount' => $amount, 'btca' => $btca));
-            $this->withdrew = $withdraw; // More legacy reporting... may remove in the future if needed.
-            return $withdraw;
-        }
+		/** End *code code */
+		/** Begin BTC output code */
+		/*
+		 * Warning, I have not yet experimented with direct bitcoin address withdrawals, USE AT YOUR OWN RISK!
+		 */
+		if($method = "BTC" && isset($btca)) {
+			$withdraw = $this->mtgox_query('0/withdraw.php', array('group1' => 'BTC', 'amount' => $amount, 'btca' => $btca));
+			$this->withdrew = $withdraw; // More legacy reporting... may remove in the future if needed.
+			return $withdraw;
+		}
 	}
 }
