@@ -51,11 +51,15 @@ class Gox
 
 		// generate the POST data string
 		$post_data = http_build_query($req, '', '&');
-
+		if(strncmp($path, '2/', 2)==0){
+			$valdata = substr($path, 2)."\0".$post_data;
+		}else{
+			$valdata = $post_data;
+		}
 		// generate the extra headers
 		$headers = array(
 			'Rest-Key: ' . $key,
-			'Rest-Sign: ' . base64_encode(hash_hmac('sha512', $post_data, base64_decode($secret), true)),
+			'Rest-Sign: ' . base64_encode(hash_hmac('sha512', $valdata, base64_decode($secret), true)),
 			);
 
 		// our curl handle (initialize if required)
