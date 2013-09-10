@@ -85,7 +85,6 @@ class Gox
 			throw new Exception('Invalid data received, please make sure connection is working and requested API exists');
 		return $dec;
 	}
-	
 	/**
 	 * Gox::getInfo()
 	 * Returns information about your account, including funds, fees, and API priviledges
@@ -96,14 +95,13 @@ class Gox
 		$this->info = $info; // Hold it in a variable for easy access
 		return $info;
 	}
-	
 	/**
 	 * Gox::ticker()
 	 * Returns current ticker from MtGOX
 	 * @return $ticker
 	 */
-	function ticker() {
-		$ticker = $this->mtgox_query('0/ticker.php');
+	function ticker($pair = "BTCUSD") {
+		$ticker = $this->mtgox_query('2/'.$pair.'/MONEY/ticker');
 		$this->ticker = $ticker; // Another variable to contain it.
 		return $ticker;
 	}
