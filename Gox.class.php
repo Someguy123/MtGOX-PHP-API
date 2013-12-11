@@ -96,6 +96,16 @@ class Gox
 		return $info;
 	}
 	/**
+	 * Gox::getOrders()
+	 * Returns information about your orders 
+	 * @return array $info
+	 */
+	function getOrders($valute= "BTCUSD") {
+		$info = $this->mtgox_query('2/BTCEUR/money/orders');
+		$this->info = $info; 
+		return $info;
+	}
+	/**
 	 * Gox::ticker()
 	 * Returns current ticker from MtGOX
 	 * @return $ticker
