@@ -101,7 +101,7 @@ class Gox
 	 * @return array $info
 	 */
 	function getOrders($valute= "BTCUSD") {
-		$info = $this->mtgox_query('2/BTCEUR/money/orders');
+		$info = $this->mtgox_query('2/'.$valute.'/money/orders');
 		$this->info = $info; 
 		return $info;
 	}
